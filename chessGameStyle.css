@@ -1,0 +1,225 @@
+.red {
+  float: left;
+  width: 80px;
+  height: 80px;
+  background-color: red;
+  font-size: 50px;  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.black {
+  float: left;
+  width: 80px;
+  height: 80px;
+  background-color: grey;
+  font-size: 50px;  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.chessboard {
+  width: 640px;
+  height: 640px;
+  margin: 20px;
+  border: 25px solid #333;
+  position: absolute;
+}
+
+
+/* -------White-------*/
+div#whiteKing {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 260px;
+}
+div#whiteQueen {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 335px;
+}
+div#whiteRookTwo {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 575px;
+}
+div#whiteRookOne {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+}
+div#whiteBishopOne {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 95px;
+}
+div#whiteBishopTwo {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 495px;
+}
+div#whiteKnightOne {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 175px;
+}
+div#whiteKnightTwo {
+  font-size: 3em;
+  position: absolute;
+  top: 5px;
+  left: 415px;
+}
+div#whitePawn1 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 15px;
+}
+div#whitePawn2 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 95px;
+}
+div#whitePawn3 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 175px;
+}
+div#whitePawn4 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 260px;
+}
+div#whitePawn5 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 335px;
+}
+div#whitePawn6 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 415px;
+}
+div#whitePawn7 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 495px;
+}
+div#whitePawn8 {
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 575px;
+}
+
+/* -------black-------*/
+
+div#blackKing {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 260px;
+}
+div#blackQueen {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 335px;
+}
+div#blackRookOne {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 15px;
+}
+div#blackRookTwo {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 575px;
+}
+div#blackBishopOne {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 95px;
+}
+div#blackBishopTwo {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 495px;
+}
+div#blackKnightOne {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 175px;
+}
+div#blackKnightTwo {
+  font-size: 3em;
+  position: absolute;
+  bottom:  5px;
+  left: 415px;
+}
+div#blackPawn1 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 15px;
+}
+div#blackPawn2 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 95px;
+}
+div#blackPawn3 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 175px;
+}
+div#blackPawn4 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 260px;
+}
+div#blackPawn5 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 335px;
+}
+div#blackPawn6 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 415px;
+}
+div#blackPawn7 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 495px;
+}
+div#blackPawn8 {
+  font-size: 3em;
+  position: absolute;
+  bottom:  90px;
+  left: 575px;
+}
