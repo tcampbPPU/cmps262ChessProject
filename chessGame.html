@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>PPU Chess</title>
+  <link rel="stylesheet" type="text/css" href="chessGameStyle.css">
+
+  <script src="jquery-3.1.1.min copy.js"></script>
+  <script>
+  $(document).ready(function() {
+    console.log("jQuery was loaded");
+    function handle_mousedown(e){
+        window.my_dragging = {};
+        my_dragging.pageX0 = e.pageX;
+        my_dragging.pageY0 = e.pageY;
+        my_dragging.elem = this;
+        my_dragging.offset0 = $(this).offset();
+        function handle_dragging(e){
+            var left = my_dragging.offset0.left + (e.pageX - my_dragging.pageX0);
+            var top = my_dragging.offset0.top + (e.pageY - my_dragging.pageY0);
+            $(my_dragging.elem)
+            .offset({top: top, left: left});
+        }
+        function handle_mouseup(e){
+            $("body")
+            .off("mousemove", handle_dragging)
+            .off("mouseup", handle_mouseup);
+        }
+        $("body")
+        .on("mouseup", handle_mouseup)
+        .on("mousemove", handle_dragging);
+    }
+    //white pieces
+    $("#whiteKing").mousedown(handle_mousedown);
+    $("#whiteQueen").mousedown(handle_mousedown);
+    $("#whiteRookOne").mousedown(handle_mousedown);
+    $("#whiteRookTwo").mousedown(handle_mousedown);
+    $("#whiteBishopOne").mousedown(handle_mousedown);
+    $("#whiteBishopTwo").mousedown(handle_mousedown);
+    $("#whiteKnightOne").mousedown(handle_mousedown);
+    $("#whiteKnightTwo").mousedown(handle_mousedown);
+    $("#whitePawn1").mousedown(handle_mousedown);
+    $("#whitePawn2").mousedown(handle_mousedown);
+    $("#whitePawn3").mousedown(handle_mousedown);
+    $("#whitePawn4").mousedown(handle_mousedown);
+    $("#whitePawn5").mousedown(handle_mousedown);
+    $("#whitePawn6").mousedown(handle_mousedown);
+    $("#whitePawn7").mousedown(handle_mousedown);
+    $("#whitePawn8").mousedown(handle_mousedown);
+
+    //black pieces
+    $("#blackKing").mousedown(handle_mousedown);
+    $("#blackQueen").mousedown(handle_mousedown);
+    $("#blackRookOne").mousedown(handle_mousedown);
+    $("#blackRookTwo").mousedown(handle_mousedown);
+    $("#blackBishopOne").mousedown(handle_mousedown);
+    $("#blackBishopTwo").mousedown(handle_mousedown);
+    $("#blackKnightOne").mousedown(handle_mousedown);
+    $("#blackKnightTwo").mousedown(handle_mousedown);
+    $("#blackPawn1").mousedown(handle_mousedown);
+    $("#blackPawn2").mousedown(handle_mousedown);
+    $("#blackPawn3").mousedown(handle_mousedown);
+    $("#blackPawn4").mousedown(handle_mousedown);
+    $("#blackPawn5").mousedown(handle_mousedown);
+    $("#blackPawn6").mousedown(handle_mousedown);
+    $("#blackPawn7").mousedown(handle_mousedown);
+    $("#blackPawn8").mousedown(handle_mousedown);
+
+
+  });
+
+</script>
+<script>
+
+
+</script>
+</head>
+
+<body>
+
+<div class="chessboard">
+
+  <div id="whiteKing" ondrop="drop(event)" ondragover="allowDrop(event)">&#9812;</div>
+  <div id="whiteQueen" ondrop="drop(event)" ondragover="allowDrop(event)">&#9813;</div>
+  <div id="whiteRookOne" ondrop="drop(event)" ondragover="allowDrop(event)">&#9814;</div>
+  <div id="whiteRookTwo" ondrop="drop(event)" ondragover="allowDrop(event)">&#9814;</div>
+  <div id="whiteBishopOne" ondrop="drop(event)" ondragover="allowDrop(event)">&#9815;</div>
+  <div id="whiteBishopTwo" ondrop="drop(event)" ondragover="allowDrop(event)">&#9815;</div>
+  <div id="whiteKnightOne" ondrop="drop(event)" ondragover="allowDrop(event)">&#9816;</div>
+  <div id="whiteKnightTwo" ondrop="drop(event)" ondragover="allowDrop(event)">&#9816;</div>
+  <div id="whitePawn1" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+  <div id="whitePawn2" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+  <div id="whitePawn3" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+  <div id="whitePawn4" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+  <div id="whitePawn5" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+  <div id="whitePawn6" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+  <div id="whitePawn7" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+  <div id="whitePawn8" ondrop="drop(event)" ondragover="allowDrop(event)">&#9817;</div>
+
+  <div id="blackKing">&#9818;</div>
+  <div id="blackQueen">&#9819;</div>
+  <div id="blackRookOne">&#9820;</div>
+  <div id="blackRookTwo">&#9820;</div>
+  <div id="blackBishopOne">&#9821;</div>
+  <div id="blackBishopTwo">&#9821;</div>
+  <div id="blackKnightOne">&#9822;</div>
+  <div id="blackKnightTwo">&#9822;</div>
+  <div id="blackPawn1">&#9823;</div>
+  <div id="blackPawn2">&#9823;</div>
+  <div id="blackPawn3">&#9823;</div>
+  <div id="blackPawn4">&#9823;</div>
+  <div id="blackPawn5">&#9823;</div>
+  <div id="blackPawn6">&#9823;</div>
+  <div id="blackPawn7">&#9823;</div>
+  <div id="blackPawn8">&#9823;</div>
+
+    <!-- 1st Row-->
+    <div>
+      <div class="red"></div>
+      <div class="black"></div>
+      <div class="red"></div>
+      <div class="black"></div>
+      <div class="red"></div>
+      <div class="black"></div>
+      <div class="red"></div>
+      <div class="black"></div>
+  </div>
+
+
+  <!-- 2nd Row-->
+  <div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+  </div>
+  <!-- 3rd Row-->
+  <div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+  </div>
+  <!-- 4st Row-->
+  <div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+  </div>
+  <!-- 5th Row-->
+  <div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+  </div>
+  <!-- 6th Row-->
+  <div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+  </div>
+  <!-- 7th Row-->
+  <div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+  </div>
+  <!-- 8th Row-->
+  <div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+    <div class="black"></div>
+    <div class="red"></div>
+  </div>
+</div>
+
+</body>
+</html>
