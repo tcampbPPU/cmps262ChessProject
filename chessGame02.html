@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>PPU Chess</title>
+  <link rel="stylesheet" type="text/css" href="chessGameStyle.css">
+  <script src="jquery-3.1.1.min copy.js"></script>
+  <script src="chessGame.js"></script>
+  <script>
+  $(document).ready(function() {
+    console.log("jQuery was loaded");
+    function handle_mousedown(e){
+        window.my_dragging = {};
+        my_dragging.pageX0 = e.pageX;
+        my_dragging.pageY0 = e.pageY;
+        my_dragging.elem = this;
+        my_dragging.offset0 = $(this).offset();
+        function handle_dragging(e){
+            var left = my_dragging.offset0.left + (e.pageX - my_dragging.pageX0);
+            var top = my_dragging.offset0.top + (e.pageY - my_dragging.pageY0);
+            $(my_dragging.elem)
+            .offset({top: top, left: left});
+        }
+        function handle_mouseup(e){
+            $("body")
+            .off("mousemove", handle_dragging)
+            .off("mouseup", handle_mouseup);
+            console.log(e.offsetX);
+            console.log(e.offsetY);
+            console.log(e.clientX);
+            console.log(e.clientY);
+        }
+        $("body")
+        .on("mouseup", handle_mouseup)
+        .on("mousemove", handle_dragging);
+    }
+    //white pieces
+    $("#whiteKing").mousedown(handle_mousedown);
+    $("#whiteQueen").mousedown(handle_mousedown);
+    $("#whiteRookOne").mousedown(handle_mousedown);
+    $("#whiteRookTwo").mousedown(handle_mousedown);
+    $("#whiteBishopOne").mousedown(handle_mousedown);
+    $("#whiteBishopTwo").mousedown(handle_mousedown);
+    $("#whiteKnightOne").mousedown(handle_mousedown);
+    $("#whiteKnightTwo").mousedown(handle_mousedown);
+    $("#whitePawn1").mousedown(handle_mousedown);
+    $("#whitePawn2").mousedown(handle_mousedown);
+    $("#whitePawn3").mousedown(handle_mousedown);
+    $("#whitePawn4").mousedown(handle_mousedown);
+    $("#whitePawn5").mousedown(handle_mousedown);
+    $("#whitePawn6").mousedown(handle_mousedown);
+    $("#whitePawn7").mousedown(handle_mousedown);
+    $("#whitePawn8").mousedown(handle_mousedown);
+
+    //black pieces
+    $("#blackKing").mousedown(handle_mousedown);
+    $("#blackQueen").mousedown(handle_mousedown);
+    $("#blackRookOne").mousedown(handle_mousedown);
+    $("#blackRookTwo").mousedown(handle_mousedown);
+    $("#blackBishopOne").mousedown(handle_mousedown);
+    $("#blackBishopTwo").mousedown(handle_mousedown);
+    $("#blackKnightOne").mousedown(handle_mousedown);
+    $("#blackKnightTwo").mousedown(handle_mousedown);
+    $("#blackPawn1").mousedown(handle_mousedown);
+    $("#blackPawn2").mousedown(handle_mousedown);
+    $("#blackPawn3").mousedown(handle_mousedown);
+    $("#blackPawn4").mousedown(handle_mousedown);
+    $("#blackPawn5").mousedown(handle_mousedown);
+    $("#blackPawn6").mousedown(handle_mousedown);
+    $("#blackPawn7").mousedown(handle_mousedown);
+    $("#blackPawn8").mousedown(handle_mousedown);
+
+    $("#div").click(function() {
+      var id = $(this).attr("id");
+      chessGame.playMove(id);
+      });
+      chessGame.addListener(function(board) {
+        console.log("Model has been updated!");
+        for (var r = 0; r < 8; r++) {
+          for (var c = 0; c < 8; c++) {
+            $("#R"+r+"C"+c).empty();
+            if (board[r][c] === null) {
+            }
+            else {
+              $("#R"+r+"C"+c).append(board[r][c]);
+            }
+          }
+        }
+      });
+
+    $("#resetBoard").click(function() {
+      chessGame.resetBoard();
+    })
+  });
+
+</script>
+<script>
+// -----Game rules-------
+//king = 1 move in any direction
+
+//rook = up and down
+
+//bishop = diagonally with corresponding color
+
+//knight = up 2 left or right 1 || up 1 left or right 2
+
+//pawn = 2 up off starting move, 1 after than attack sideways
+
+//queen = make all moves  use Callbacks
+</script>
+</head>
+<body>
+
+<div class="chessboard">
+  <div id="whiteKing">&#9812;</div>
+  <div id="whiteQueen">&#9813;</div>
+  <div id="whiteRookOne">&#9814;</div>
+  <div id="whiteRookTwo">&#9814;</div>
+  <div id="whiteBishopOne">&#9815;</div>
+  <div id="whiteBishopTwo">&#9815;</div>
+  <div id="whiteKnightOne">&#9816;</div>
+  <div id="whiteKnightTwo">&#9816;</div>
+  <div id="whitePawn1">&#9817;</div>
+  <div id="whitePawn2">&#9817;</div>
+  <div id="whitePawn3">&#9817;</div>
+  <div id="whitePawn4">&#9817;</div>
+  <div id="whitePawn5">&#9817;</div>
+  <div id="whitePawn6">&#9817;</div>
+  <div id="whitePawn7">&#9817;</div>
+  <div id="whitePawn8">&#9817;</div>
+
+  <div id="blackKing">&#9818;</div>
+  <div id="blackQueen">&#9819;</div>
+  <div id="blackRookOne">&#9820;</div>
+  <div id="blackRookTwo">&#9820;</div>
+  <div id="blackBishopOne">&#9821;</div>
+  <div id="blackBishopTwo">&#9821;</div>
+  <div id="blackKnightOne">&#9822;</div>
+  <div id="blackKnightTwo">&#9822;</div>
+  <div id="blackPawn1">&#9823;</div>
+  <div id="blackPawn2">&#9823;</div>
+  <div id="blackPawn3">&#9823;</div>
+  <div id="blackPawn4">&#9823;</div>
+  <div id="blackPawn5">&#9823;</div>
+  <div id="blackPawn6">&#9823;</div>
+  <div id="blackPawn7">&#9823;</div>
+  <div id="blackPawn8">&#9823;</div>
+
+    <!-- 1st Row-->
+    <div>
+      <div id="R0C0" class="red"></div>
+      <div id="R0C1" class="black"></div>
+      <div id="R0C2" class="red"></div>
+      <div id="R0C3" class="black"></div>
+      <div id="R0C4" class="red"></div>
+      <div id="R0C5" class="black"></div>
+      <div id="R0C6" class="red"></div>
+      <div id="R0C7" class="black"></div>
+  </div>
+
+
+  <!-- 2nd Row-->
+  <div>
+    <div id="R1C0" class="black"></div>
+    <div id="R1C1" class="red"></div>
+    <div id="R1C2" class="black"></div>
+    <div id="R1C3" class="red"></div>
+    <div id="R1C4" class="black"></div>
+    <div id="R1C5" class="red"></div>
+    <div id="R1C6" class="black"></div>
+    <div id="R1C7"class="red"></div>
+  </div>
+  <!-- 3rd Row-->
+  <div>
+    <div id="R2C0" class="red"></div>
+    <div id="R2C1" class="black"></div>
+    <div id="R2C2" class="red"></div>
+    <div id="R2C3" class="black"></div>
+    <div id="R2C4" class="red"></div>
+    <div id="R2C5" class="black"></div>
+    <div id="R2C6" class="red"></div>
+    <div id="R2C7" class="black"></div>
+  </div>
+  <!-- 4st Row-->
+  <div>
+    <div id="R3C0" class="black"></div>
+    <div id="R3C1" class="red"></div>
+    <div id="R3C2" class="black"></div>
+    <div id="R3C3" class="red"></div>
+    <div id="R3C4" class="black"></div>
+    <div id="R3C5" class="red"></div>
+    <div id="R3C6" class="black"></div>
+    <div id="R3C7" class="red"></div>
+  </div>
+  <!-- 5th Row-->
+  <div>
+    <div id="R4C0" class="red"></div>
+    <div id="R4C1" class="black"></div>
+    <div id="R4C2" class="red"></div>
+    <div id="R4C3" class="black"></div>
+    <div id="R4C4" class="red"></div>
+    <div id="R4C5" class="black"></div>
+    <div id="R4C6" class="red"></div>
+    <div id="R4C7" class="black"></div>
+  </div>
+  <!-- 6th Row-->
+  <div>
+    <div id="R5C0" class="black"></div>
+    <div id="R5C1" class="red"></div>
+    <div id="R5C2" class="black"></div>
+    <div id="R5C3" class="red"></div>
+    <div id="R5C4" class="black"></div>
+    <div id="R5C5" class="red"></div>
+    <div id="R5C6" class="black"></div>
+    <div id="R5C7" class="red"></div>
+  </div>
+  <!-- 7th Row-->
+  <div>
+    <div id="R6C0" class="red"></div>
+    <div id="R6C1" class="black"></div>
+    <div id="R6C2" class="red"></div>
+    <div id="R6C3" class="black"></div>
+    <div id="R6C4" class="red"></div>
+    <div id="R6C5" class="black"></div>
+    <div id="R6C6" class="red"></div>
+    <div id="R6C7" class="black"></div>
+  </div>
+  <!-- 8th Row-->
+  <div>
+    <div id="R7C0" class="black"></div>
+    <div id="R7C1" class="red"></div>
+    <div id="R7C2" class="black"></div>
+    <div id="R7C3" class="red"></div>
+    <div id="R7C4" class="black"></div>
+    <div id="R7C5" class="red"></div>
+    <div id="R7C6" class="black"></div>
+    <div id="R7C7" class="red"></div>
+  </div>
+</div>
+<div>
+  <input id ="CPU" type="button" value="Play Computer" style="position: absolute; right: 0;">
+</div>
+<a href="javascript:chessGame.resetBoard()">RESET BOARD</a>
+</body>
+</html>
